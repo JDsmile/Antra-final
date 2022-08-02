@@ -7,15 +7,19 @@ const formSubmit = document.querySelector(".form-submit")
 let input =""
 let data;
 let canEdit = false
-
-
-console.log(inputBox)
+let todoList = []
 
 function loadData(){
   fetch(`${API_URL}${PATH}`)
   .then((response) => response.json())
   .then((data)=>display(data))
+  // .then(data=>{todoList = [...data]
+  // })
+
+
 }
+
+console.log(todoList)
 
 function display(data){
   const todos = data.map((item,index) =>{
@@ -65,10 +69,10 @@ function editTodo(id){
     canEdit===true
          //replace the p tag into input file for change todo content
          let editble = document.createElement("input")
-         editble.classList.add("input-field")
+         editble.classList.add("todo-edit-input")
          editble.setAttribute("id",id)
          document.getElementById(id).replaceWith(editble)
-         document.querySelector(".input-field").addEventListener("input", (event)=>{
+         document.querySelector(".todo-edit-input").addEventListener("input", (event)=>{
          input = event.target.value
          
          data = {"title":input,"completed":false}
@@ -85,12 +89,10 @@ function editTodo(id){
           "title": input
         })
       })
+      window.location.reload()
     }
-
     canEdit=false
   }
-
-
 
 inputBox.addEventListener("input", (event)=>{
   input = event.target.value

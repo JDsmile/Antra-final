@@ -12,37 +12,58 @@
     padding: 5em;
 }
 
+.form{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+
+}
 .form-input,
 .form-submit{
-    padding: 1em 1.5em;
+    padding: 0.75em 1.5em;
     font-size: 1.5rem;
-    margin-bottom: 1em;
     cursor: pointer;
+    border-radius: 5px;
 }
+.form-input{
+    border: 1px solid gray;
+    font-size: 1.5rem;
+}
+
 .form-submit{
     color: white;
     background-color: #008cba;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 svg{
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .todos-container{
     font-size: 1.5rem;
-    min-height: 300px;
+    min-height: 500px;
     margin-top: 1em;
+    padding-top: 1em;
+    border-radius: 15px;
     background-color:  #f0f0f0;
+    border: 5px solid #e6e2d3;
+    width: 500px;
 }
 .todo-item{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 500px;
-    padding: 0 1em;
+    min-width: 400px;
+    margin: 0 20px;
+    padding: .5em 1em;
     margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #e6e2d3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .small{
@@ -58,4 +79,13 @@ svg{
 .completed{
     opacity: 0.5;
     text-decoration: line-through;
+}
+
+.todo-edit-input{
+    padding: 0.5em;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border:none;
+
 }

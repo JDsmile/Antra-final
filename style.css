@@ -55,7 +55,6 @@ svg{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    min-width: 400px;
     margin: 0 20px;
     padding: .5em 1em;
     margin-bottom: 10px;
@@ -64,6 +63,10 @@ svg{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.todo-content{
+    overflow-wrap: break-word;
+    max-width: 250px;
 }
 
 .small{
@@ -87,5 +90,4 @@ svg{
     cursor: pointer;
     border-radius: 5px;
     border:none;
-
 }

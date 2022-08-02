@@ -48,10 +48,9 @@ function deleteTodo(id) {
 
 //compeleted todos
 
-//need to re order the array
 function completedTodo(id){
   document.getElementById(id).classList.add("completed")
-
+  
   //change completed to true when todo is clicked
   fetch([API_URL+PATH+"/"+id],{
     method: "PATCH",

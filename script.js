@@ -13,9 +13,6 @@ function loadData(){
   fetch(`${API_URL}${PATH}`)
   .then((response) => response.json())
   .then((data)=>display(data))
-  // .then(data=>{todoList = [...data]
-  // })
-
 
 }
 
@@ -27,7 +24,7 @@ function display(data){
     return `  
       <div class="todo-item">
 
-        <p class="todo-content ${item.completed ? "completed": "" }" id=${item.id} onclick="completedTodo(${item.id})">${item.title}
+        <p class="todo-content ${item.completed ? "completed": "" }" id=${item.id} onclick="completedTodo(${item.id},${item.completed})">${item.title}
         </p>
 
         <div>
@@ -48,19 +45,35 @@ function deleteTodo(id) {
 
 //compeleted todos
 
-function completedTodo(id){
-  document.getElementById(id).classList.add("completed")
+function completedTodo(id,complete){
+
+  //toggle status of the todo 
+  if(complete===false){
   
-  //change completed to true when todo is clicked
-  fetch([API_URL+PATH+"/"+id],{
-    method: "PATCH",
-    headers : {
-      'Content-Type': "application/json"
-    },
-    body : JSON.stringify({
-      "title": data, "completed":true
+    //change completed to false when is true
+    fetch([API_URL+PATH+"/"+id],{
+      method: "PATCH",
+      headers : {
+        'Content-Type': "application/json"
+      },
+      body : JSON.stringify({
+        "title": data, "completed":true
+      })
     })
-  })
+  }else{
+    //change completed to true when todo is clicked
+    fetch([API_URL+PATH+"/"+id],{
+      method: "PATCH",
+      headers : {
+        'Content-Type': "application/json"
+      },
+      body : JSON.stringify({
+        "title": data, "completed":false
+      })
+    })
+  }
+  window.location.reload()
+
 }
 //edit current todo
 function editTodo(id){
